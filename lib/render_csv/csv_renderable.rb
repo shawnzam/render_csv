@@ -19,16 +19,7 @@ module RenderCsv
       CSV.generate(encoding: 'utf-8') do |row|
         row << columns
         self.each do |obj|
-          cols = []
-          columns.map { |c|
-            value = obj.send(c)
-            if value.is_a?(Array)
-             cols += value
-           else
-             cols.push(value)
-           end
-          }
-          row << cols
+          row << columns.map { |c| obj.send(c) }
         end
       end
     end
