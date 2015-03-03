@@ -22,7 +22,7 @@ module RenderCsv
           cols = []
           columns.map { |c|
             value = obj.send(c)
-            if value .is_a?(Array)
+            if value.is_a?(Array)
              cols += value
            else
              cols.push(value)
