@@ -21,8 +21,8 @@ module RenderCsv
         self.each do |obj|
           cols = []
           columns.map { |c|
-            value = obj.send(c)
-            value.is_a? Array ? cols += value : cols.push value
+            # value = obj.send(c)
+            obj.send(c).is_a? Array ? cols += obj.send(c) : cols.push obj.send(c)
           }
           row << cols
         end
